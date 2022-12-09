@@ -44,8 +44,8 @@ const Cart = () => {
             <div key={product.id} className="added-item flex items-start gap-5">
               <div className="left flex-1">
                 <img
-                  src={product.images[0].src}
-                  alt={product.images[0].alt}
+                  src={product.images[0]}
+                  alt={product.title}
                   className="hover:rounded-xl duration-300"
                 />
               </div>
