@@ -1,39 +1,107 @@
-import { useEffect, useState } from "react";
 import ProductItem from "../components/ProductItem";
 
+const data = [
+  {
+    id: 1,
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, necessitatibus?",
+    descriptions: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure excepturi atque, modi doloribus in quo harum? Culpa nobis sequi ipsa.",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur dicta, itaque id a cumque corrupti doloremque nisi nostrum vel accusantium dolore vero optio inventore quidem aliquid, dolores esse voluptate repudiandae excepturi praesentium. Maiores voluptatum perferendis, alias blanditiis recusandae repellendus! Nulla?",
+    ],
+    images: [
+      {
+        src: "https://images.pexels.com/photos/1845831/pexels-photo-1845831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        alt: "Woman In Blue Jeans Sitting On Pile Of Wood",
+      },
+      {
+        src: "https://images.pexels.com/photos/3799361/pexels-photo-3799361.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        alt: "Woman in Knitted Sweater",
+      },
+    ],
+    price: 28,
+    categories: ["Lorem.", "Lorem, ipsum."],
+    isNew: true,
+    isFeatured: false,
+  },
+  {
+    id: 2,
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, necessitatibus?",
+    descriptions: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure excepturi atque, modi doloribus in quo harum? Culpa nobis sequi ipsa.",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur dicta, itaque id a cumque corrupti doloremque nisi nostrum vel accusantium dolore vero optio inventore quidem aliquid, dolores esse voluptate repudiandae excepturi praesentium. Maiores voluptatum perferendis, alias blanditiis recusandae repellendus! Nulla?",
+    ],
+    images: [
+      {
+        src: "https://images.pexels.com/photos/1845831/pexels-photo-1845831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        alt: "Woman In Blue Jeans Sitting On Pile Of Wood",
+      },
+      {
+        src: "https://images.pexels.com/photos/3799361/pexels-photo-3799361.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        alt: "Woman in Knitted Sweater",
+      },
+    ],
+    price: 28,
+    categories: ["Lorem.", "Lorem, ipsum."],
+    isNew: false,
+    isFeatured: false,
+  },
+  {
+    id: 3,
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, necessitatibus?",
+    descriptions: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure excepturi atque, modi doloribus in quo harum? Culpa nobis sequi ipsa.",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur dicta, itaque id a cumque corrupti doloremque nisi nostrum vel accusantium dolore vero optio inventore quidem aliquid, dolores esse voluptate repudiandae excepturi praesentium. Maiores voluptatum perferendis, alias blanditiis recusandae repellendus! Nulla?",
+    ],
+    images: [
+      {
+        src: "https://images.pexels.com/photos/1845831/pexels-photo-1845831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        alt: "Woman In Blue Jeans Sitting On Pile Of Wood",
+      },
+      {
+        src: "https://images.pexels.com/photos/3799361/pexels-photo-3799361.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        alt: "Woman in Knitted Sweater",
+      },
+    ],
+    price: 28,
+    categories: ["Lorem.", "Lorem, ipsum."],
+    isNew: false,
+    isFeatured: false,
+  },
+  {
+    id: 4,
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, necessitatibus?",
+    descriptions: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure excepturi atque, modi doloribus in quo harum? Culpa nobis sequi ipsa.",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur dicta, itaque id a cumque corrupti doloremque nisi nostrum vel accusantium dolore vero optio inventore quidem aliquid, dolores esse voluptate repudiandae excepturi praesentium. Maiores voluptatum perferendis, alias blanditiis recusandae repellendus! Nulla?",
+    ],
+    images: [
+      {
+        src: "https://images.pexels.com/photos/1845831/pexels-photo-1845831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        alt: "Woman In Blue Jeans Sitting On Pile Of Wood",
+      },
+      {
+        src: "https://images.pexels.com/photos/3799361/pexels-photo-3799361.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        alt: "Woman in Knitted Sweater",
+      },
+    ],
+    price: 28,
+    categories: ["Lorem.", "Lorem, ipsum."],
+    isNew: true,
+    isFeatured: false,
+  },
+];
+
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch("https://dummyjson.com/products");
-        if (!res.ok) throw new Error("Something went wrong!");
-        const data = await res.json();
-        setProducts(data.products);
-        console.log(data.products);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
   return (
     <div className="products-section container mx-auto py-20">
       <div className="products flex flex-wrap gap-10 justify-center">
-        {loading
-          ? "Loading..."
-          : error
-          ? error
-          : products?.map((product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
+        {data.map((product) => (
+          <ProductItem key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );
