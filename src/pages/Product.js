@@ -4,6 +4,8 @@ import { currencyFormatter } from "../utilities/currencyFormatter";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/product/productSlice";
 
 const product = {
   id: 1,
@@ -34,6 +36,8 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   return (
     <div className="product-section container mx-auto py-20">
@@ -103,6 +107,7 @@ const Product = () => {
           </div>
           <div className="btns flex items-center gap-5 mt-10">
             <Link
+              onClick={() => dispatch(addToCart({ ...product, quantity }))}
               to="/cart"
               className="add-to-cart-btn bg-teal-500 text-teal-50 font-semibold py-2 px-5 rounded-md shadow-lg shadow-teal-100 hover:bg-orange-500 hover:text-orange-50 hover:shadow-orange-100 duration-300 uppercase"
             >
