@@ -11,8 +11,8 @@ const ProductItem = ({ product }) => {
       )}
       <div className="product-img overflow-hidden w-full h-[20rem]">
         <img
-          src={product.images[0].src}
-          alt={product.images[0].alt}
+          src={product.images[0]}
+          alt={product.title}
           className="w-full h-full object-cover group-hover:scale-105 duration-300"
         />
       </div>
