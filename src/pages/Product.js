@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { currencyFormatter } from "../utilities/currencyFormatter";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -102,18 +102,24 @@ const Product = () => {
             </span>
           </div>
           <div className="btns flex items-center gap-5 mt-10">
-            <button className="add-to-cart-btn bg-teal-500 text-teal-50 font-semibold py-2 px-5 rounded-md shadow-lg shadow-teal-100 hover:bg-orange-500 hover:text-orange-50 hover:shadow-orange-100 duration-300 uppercase">
+            <Link
+              to="/cart"
+              className="add-to-cart-btn bg-teal-500 text-teal-50 font-semibold py-2 px-5 rounded-md shadow-lg shadow-teal-100 hover:bg-orange-500 hover:text-orange-50 hover:shadow-orange-100 duration-300 uppercase"
+            >
               <span>
                 <AddShoppingCartIcon />
               </span>{" "}
               Add to cart
-            </button>
-            <button className="add-to-wishlist-btn text-rose-500 font-semibold hover:text-purple-500 duration-300 uppercase">
+            </Link>
+            <Link
+              to="/wishlist"
+              className="add-to-wishlist-btn text-rose-500 font-semibold hover:text-purple-500 duration-300 uppercase"
+            >
               <span>
                 <FavoriteBorderIcon />
               </span>{" "}
               Add to wishlist
-            </button>
+            </Link>
           </div>
           <div className="long-description mt-10">
             <span className="text-2xl font-semibold">Additional details</span>
