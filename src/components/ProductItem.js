@@ -9,7 +9,7 @@ const ProductItem = ({ product }) => {
           New Arrival
         </span>
       )}
-      <div className="product-img overflow-hidden w-full h-[20rem]">
+      <div className="product-img overflow-hidden w-full h-[30rem]">
         <img
           src={product.images[0]}
           alt={product.title}

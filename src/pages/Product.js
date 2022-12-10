@@ -114,9 +114,11 @@ const Product = () => {
                 <span className="text-2xl font-semibold">
                   Additional details
                 </span>
-                <p className="capitalize text-gray-500 mt-2">
-                  {data?.descriptions[1]}
-                </p>
+                <ul className="capitalize text-gray-500 mt-2">
+                  {data?.descriptions[1]?.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
